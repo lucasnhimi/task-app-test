@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 
 export async function getStaticProps<GetStaticProps>() {
   const data = await getAllTasks();
-  const tasks = data.map((item) => ({ description: item.description }));
+  const tasks = data.map((item: any) => ({ description: item.description }));
   return {
     props: {
       tasks,
