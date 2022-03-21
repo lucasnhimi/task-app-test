@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from "next";
-import { json } from "stream/consumers";
 import { getAllTasks } from "../lib/db";
 
 import styles from "../styles/Home.module.css";
@@ -14,12 +13,12 @@ export async function getStaticProps<GetStaticProps>() {
   };
 }
 
-const Home: NextPage = ({ tasks }) => {
+const Home: NextPage = ({ tasks }: any) => {
   return (
     <div className={styles.container}>
       <ul>
-        {tasks?.map((item) => (
-          <li>{item.description}</li>
+        {tasks?.map((item: any) => (
+          <li key={item.id}>{item.description}</li>
         ))}
       </ul>
     </div>
